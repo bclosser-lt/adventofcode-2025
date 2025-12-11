@@ -1,0 +1,18 @@
+{
+  "name": "adventofcode-2025",
+  "version": "0.1.0",
+  "description": "Advent of Code 2025 workspace for solving puzzles in Node.js",
+  "type": "module",
+  "scripts": {
+    "day": "node scripts/run-day.js",
+    "new:day": "node scripts/new-day.js",
+    "test": "node scripts/run-tests.js"
+  },
+  "keywords": [
+    "advent-of-code",
+    "aoc",
+    "puzzles"
+  ],
+  "author": "",
+  "license": "MIT"
+}
