@@ -1,36 +1,54 @@
 /**
  * Day 2 solution.
  */
-export const parseInput = (rawInput) => rawInput.trim().split(/\n+/);
+export const parseInput = (rawInput) => rawInput.trim().split(',');
+
+// export function part1(input) {
+//   let sum = 0;
+//   let ranges = input[0].split(',');
+
+//   const checkId = (testRange) => {
+//     const startEnd = testRange.split('-');
+//     for (let id = parseInt(startEnd[0]); id <= parseInt(startEnd[1]); id++) {
+//       let check = id.toString();
+
+//       // IDs that have un-even splits can be skipped
+//       if (check.length % 2 === 0) {
+//         let pt1 = check.slice(0, check.length / 2);
+//         let pt2 = check.slice(check.length / 2);
+
+//         if (pt1 === pt2) {
+//           sum += id;
+//           continue;
+//         }
+//       }
+//     }
+//   };
+
+//   ranges.forEach((range) => {
+//     checkId(range);
+//   });
+
+//   return sum;
+// }
 
 export function part1(input) {
   let sum = 0;
-  let ranges = input[0].split(',');
+  input.forEach((range) => {
+    let startEnd = range.split('-').map(Number);
+    for (let id = startEnd[0]; id <= startEnd[1]; id++) {
+      const idStr = id.toString();
+      const halfLength = idStr.length / 2;
+      if (idStr.length % 2 === 0) {
+        const pt1 = idStr.slice(0, halfLength);
+        const pt2 = idStr.slice(halfLength);
 
-  const checkId = (testRange) => {
-    const startEnd = testRange.split("-");
-    for (let id = parseInt(startEnd[0]); id <= parseInt(startEnd[1]); id++) {
-      let check = id.toString();
-
-      // IDs that have un-even splits can be skipped
-      if (check.length % 2 === 0) {
-  
-        let pt1 = check.slice(0, check.length / 2);
-        let pt2 = check.slice(check.length / 2);
-  
         if (pt1 === pt2) {
           sum += id;
-          continue;
         }
-
       }
-
     }
-    
-  }
-
-  ranges.forEach((range) => {checkId(range)})
-
+  });
   return sum;
 }
 

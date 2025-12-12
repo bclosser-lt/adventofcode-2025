@@ -8,11 +8,13 @@
     "new:day": "node scripts/new-day.js",
     "test": "node scripts/run-tests.js"
   },
+  "format": "prettier --write .",
+  "format:check": "prettier --check .",
   "keywords": [
     "advent-of-code",
     "aoc",
     "puzzles"
   ],
-  "author": "",
+  "author": "Barry Closser",
   "license": "MIT"
 }
